@@ -1,0 +1,82 @@
+#home
+{
+    background:
+    {
+    image: linear-gradient(to right,var(--hero-color-1),var(--hero-color-2)), 
+    url(../../res/img/1.jpg);
+    repeat: no-repeat;
+    size: cover;
+    position: center;
+    attachment: fixed;
+    }
+    display: flex;
+    align-items: center;
+    padding-left: 180px;
+    height: 100vh;
+}
+
+@mixin heroFont($weight)
+{
+    font: 
+    {
+    family: 'Raleway', sans-serif;
+    weight: $weight;
+    }
+}
+
+#hero-wrap
+{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    cursor: default;
+    color: var(--font-color-1);
+    span {color: var(--blue)}
+}
+
+.typed-cursor
+{
+    position: relative;
+    left: 3px;
+}
+
+#hero-title
+{
+    @include heroFont(700);
+    font-size: clamp(20px, calc(48px + 1.5vw) , 100px);
+    line-height: 68px;
+}
+
+#hero-des
+{
+    @include heroFont(500);
+    font-size: 26px;
+    margin-top: 13px;
+}
+
+#hero-links-wrap 
+{
+    @include flexDimension(flex-start,center);
+    gap: 25px;
+    margin-top: 16px;
+}
+
+.hero-links 
+{
+    font-size: 20.5px;
+    transition: .3s;
+    cursor: pointer;
+    &:hover {color: var(--blue);}
+}
+
+@media (max-width:699px)
+{
+    #home {padding: 18% 15px 0;}
+    #hero-wrap {text-align: center;}
+    #hero-links-wrap
+    {
+    @include flexDimension(center,center);
+    margin-top: 18px;
+    gap: 22px;
+    }
+}

@@ -1,0 +1,141 @@
+#photos 
+{
+    padding-left: 120px;
+    padding-right: 20px;
+    @media(max-width:980px){padding-left: 20px;}
+}
+
+#photos-container
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    @media(max-width:900px){gap: 10px;}
+    @media(max-width:750px){grid-template-columns: repeat(2,1fr);}
+    @media(max-width:550px){gap: 5px;}
+}
+
+.photos-wrap
+{
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    img 
+    {
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    }
+}
+
+#photo-more
+{
+    display: none;
+    position: absolute;
+    bottom: 0px;left: 0;
+    width: 100%;
+    padding: 16px 10px 15px;
+    background-color: var(--blue);
+    border: none;
+    outline-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    span 
+    {
+        position: relative;
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: var(--white-icon);
+        font: 
+        {
+        family: 'Raleway', sans-serif;
+        size: 15px;
+        weight: 600;
+        }
+        i 
+        {
+        position: absolute;
+        top: -1.3px;right: -28px;
+        font-size: 22px;
+        }
+    }
+}
+
+@media(max-width:450px)
+{
+
+#photos-container 
+{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-bottom: 60px;
+}
+.photos-wrap[data-photos="hide"] {display: none;}
+#photo-more {display: block;}
+
+}
+
+// photos frame css
+
+#photo-frame-container
+{
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #000000cc;
+    backdrop-filter: blur(5px);
+    padding: 25px 28px;
+    @include flexDimension(center,center);
+    transform: scale(0);
+    transform-origin: top right;
+    transition: 0.3s linear;
+}
+
+#photo-frame-close
+{
+    position: absolute;
+    top: 12px;right: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    outline-color: transparent;
+    border: none;
+    background-color: var(--blue);
+    cursor: pointer;
+    transition: .3s;
+    i 
+    {
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-47%, -50%);
+    font-size: 27px;
+    color: var(--white-icon);
+    }
+    &:active {transform: scale(0.9);}
+}
+
+#photo-frame
+{
+    max-width: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    &[alt]
+    {
+        color: #e36262;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
