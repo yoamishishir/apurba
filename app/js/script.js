@@ -1,4 +1,9 @@
 const body = document.querySelector('body'); 
+// loader work
+const loaderContainer = document.querySelector('#loader-container');
+addEventListener('load',()=>
+{setTimeout(()=>{loaderContainer.style.display='none';},1500)});
+
 // nav functions
 const hamburger = document.querySelector('#hamburger');
 const hamburgerIcon = document.querySelector('#hamburger > i');
@@ -129,3 +134,4 @@ AOS.init(
   duration: 500,
   mirror: false,
 });
+
